@@ -45,4 +45,31 @@ public class ContactHelper extends HelperBase{
     type(By.name("phone2"), contactData.getHomeNumber());
     type(By.name("notes"), contactData.getNotes());
   }
+
+  public void modifyContact(ContactData contactData) {
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("middlename"), contactData.getMiddlename());
+    type(By.name("lastname"), contactData.getLastname());
+  }
+
+  public void initFirstContactModification() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactUpdate() {
+    click(By.xpath("(//input[@name='update'])[2]"));
+  }
+
+  public void selectContact() {
+//    click(By.xpath("(//input[@name='selected[]']"));
+    click(By.name("selected[]"));
+  }
+
+  public void acceptAlert() {
+    wd.switchTo().alert().accept();
+  }
+
+  public void submitContactDeletion() {
+    click(By.xpath("//input[@value='Delete']"));
+  }
 }
