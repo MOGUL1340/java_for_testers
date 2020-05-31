@@ -1,13 +1,16 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 public class ContactHelper extends HelperBase{
+
+  GroupHelper groupHelper = new GroupHelper(wd);
+  NavigationHelper navigationHelper = new NavigationHelper(wd);
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -19,6 +22,14 @@ public class ContactHelper extends HelperBase{
 
   public void submitContact() {
     click(By.xpath("(//input[@name='submit'])[2]"));
+  }
+
+  public void checkGroupAvailability() {
+      if (!groupHelper.isGroupPresent()) {
+        navigationHelper.gotoGroupPage();
+        groupHelper.createGroup(new GroupData("TestGroup", null, null));
+      }
+      navigationHelper.returnToHomepage();
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
@@ -53,12 +64,6 @@ public class ContactHelper extends HelperBase{
     type(By.name("notes"), contactData.getNotes());
   }
 
-  public void modifyContact(ContactData contactData) {
-    type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("middlename"), contactData.getMiddlename());
-    type(By.name("lastname"), contactData.getLastname());
-  }
-
   public void initFirstContactModification() {
     click(By.xpath("//img[@alt='Edit']"));
   }
@@ -71,11 +76,24 @@ public class ContactHelper extends HelperBase{
     click(By.name("selected[]"));
   }
 
+  public void createContact(ContactData contact, boolean creation) {
+
+    checkGroupAvailability();
+    initContactCreation();
+    fillContactForm(contact, true);
+    submitContact();
+  }
+
+
   public void acceptAlert() {
     wd.switchTo().alert().accept();
   }
 
   public void submitContactDeletion() {
     click(By.xpath("//input[@value='Delete']"));
+  }
+
+  public boolean isContactPresent() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
