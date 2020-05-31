@@ -12,12 +12,12 @@ public class ContactData {
   private final String day_of_birth;
   private final String month_of_birth;
   private final String year_of_birth;
-  private final String contact_group_name;
+  private final String group;
   private final String address;
   private final String homenumber;
   private final String notes;
 
-  public ContactData(String firstname, String middlename, String lastname, String nickname, String company, String mobilephone, String email, String homepage, String day_of_birth, String month_of_birth, String year_of_birth, String contact_group_name, String address, String homenumber, String notes) {
+  public ContactData(String firstname, String middlename, String lastname, String nickname, String company, String mobilephone, String email, String homepage, String day_of_birth, String month_of_birth, String year_of_birth, String group, String address, String homenumber, String notes) {
     this.firstname = firstname;
     this.middlename = middlename;
     this.lastname = lastname;
@@ -29,7 +29,7 @@ public class ContactData {
     this.day_of_birth = day_of_birth;
     this.month_of_birth = month_of_birth;
     this.year_of_birth = year_of_birth;
-    this.contact_group_name = contact_group_name;
+    this.group = group;
     this.address = address;
     this.homenumber = homenumber;
     this.notes = notes;
@@ -79,8 +79,8 @@ public class ContactData {
     return year_of_birth;
   }
 
-  public String getContact_group_name() {
-    return contact_group_name;
+  public String getGroup() {
+    return group;
   }
 
   public String getAddress() {
