@@ -7,9 +7,8 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
-  GroupHelper groupHelper = new GroupHelper(wd);
   NavigationHelper navigationHelper = new NavigationHelper(wd);
 
   public ContactHelper(WebDriver wd) {
@@ -22,14 +21,6 @@ public class ContactHelper extends HelperBase{
 
   public void submitContact() {
     click(By.xpath("(//input[@name='submit'])[2]"));
-  }
-
-  public void checkGroupAvailability() {
-      if (!groupHelper.isGroupPresent()) {
-        navigationHelper.gotoGroupPage();
-        groupHelper.createGroup(new GroupData("TestGroup", null, null));
-      }
-      navigationHelper.returnToHomepage();
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
@@ -77,13 +68,11 @@ public class ContactHelper extends HelperBase{
   }
 
   public void createContact(ContactData contact, boolean creation) {
-
-    checkGroupAvailability();
+    navigationHelper.returnToHomepage();
     initContactCreation();
     fillContactForm(contact, true);
     submitContact();
   }
-
 
   public void acceptAlert() {
     wd.switchTo().alert().accept();
