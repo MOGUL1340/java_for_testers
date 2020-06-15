@@ -12,12 +12,12 @@ public class ContactDeletionTests extends TestBase {
   public void testContactDeletion() {
 
     // Check group availability before verification of contact availability
-    app.getNavigationHelper().gotoGroupPage();
-    if (! app.getGroupHelper().isGroupPresent()) {
-      app.getGroupHelper().createGroup(new GroupData("TestGroup", null, null));
+    app.goTo().groupPage();
+    if (! app.group().isGroupPresent()) {
+      app.group().create(new GroupData().withName("TestGroup"));
     }
     // Check contact availability
-    app.getNavigationHelper().returnToHomepage();
+    app.goTo().returnToHomepage();
     List<ContactData> before = app.getContactHelper().getContactList();
     if (! app.getContactHelper().isContactPresent()) {
       app.getContactHelper().createContact(new ContactData("Name", "MiddleName",
@@ -25,12 +25,12 @@ public class ContactDeletionTests extends TestBase {
               "+0123456789", "test@mail.com", "testpage.com",
               "1", "December", "1980",
               "TestGroup", "TestDrive 123", "123", "test notes"), true);
-      app.getNavigationHelper().returnToHomepage();
+      app.goTo().returnToHomepage();
     }
     app.getContactHelper().selectContact();
     app.getContactHelper().submitContactDeletion();
     app.getContactHelper().acceptAlert();
-    app.getNavigationHelper().returnHomeAfterDeletion();
+    app.goTo().returnHomeAfterDeletion();
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() - 1);
 
