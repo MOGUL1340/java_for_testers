@@ -3,127 +3,151 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private int id;
-  private final String firstname;
-  private final String middlename;
-  private final String lastname;
-  private final String nickname;
-  private final String company;
-  private final String mobilephone;
-  private final String email;
-  private final String homepage;
-  private final String day_of_birth;
-  private final String month_of_birth;
-  private final String year_of_birth;
-  private final String group;
-  private final String address;
-  private final String homenumber;
-  private final String notes;
 
-  public ContactData(String firstname, String middlename, String lastname, String nickname,
-                     String company, String mobilephone, String email, String homepage,
-                     String day_of_birth, String month_of_birth, String year_of_birth,
-                     String group, String address, String homenumber, String notes) {
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.company = company;
-    this.mobilephone = mobilephone;
-    this.email = email;
-    this.homepage = homepage;
-    this.day_of_birth = day_of_birth;
-    this.month_of_birth = month_of_birth;
-    this.year_of_birth = year_of_birth;
-    this.group = group;
-    this.address = address;
-    this.homenumber = homenumber;
-    this.notes = notes;
-  }
-
-  public ContactData(int id, String firstname, String middlename, String lastname, String nickname,
-                     String company, String mobilephone, String email, String homepage,
-                     String day_of_birth, String month_of_birth, String year_of_birth,
-                     String group, String address, String homenumber, String notes) {
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.company = company;
-    this.mobilephone = mobilephone;
-    this.email = email;
-    this.homepage = homepage;
-    this.day_of_birth = day_of_birth;
-    this.month_of_birth = month_of_birth;
-    this.year_of_birth = year_of_birth;
-    this.group = group;
-    this.address = address;
-    this.homenumber = homenumber;
-    this.notes = notes;
-  }
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String middlename;
+  private String lastname;
+  private String nickname;
+  private String company;
+  private String mobilephone;
+  private String email;
+  private String homepage;
+  private String day_of_birth;
+  private String month_of_birth;
+  private String year_of_birth;
+  private String group;
+  private String address;
+  private String homenumber;
+  private String notes;
 
   public int getId() {
     return id;
   }
-
   public String getFirstname() {
     return firstname;
   }
-
   public String getMiddlename() {
     return middlename;
   }
-
   public String getLastname() {
     return lastname;
   }
-
   public String getNickname() {
     return nickname;
   }
-
   public String getCompany() {
     return company;
   }
-
   public String getMobilephone() {
     return mobilephone;
   }
-
   public String getEmail() {
     return email;
   }
-
   public String getHomepage() {
     return homepage;
   }
-
   public String getDay_of_birth() {
     return day_of_birth;
   }
-
   public String getMonth_of_birth() {
     return month_of_birth;
   }
-
   public String getYear_of_birth() {
     return year_of_birth;
   }
-
   public String getGroup() {
     return group;
   }
-
   public String getAddress() {
     return address;
   }
-
   public String getHomeNumber() {
     return homenumber;
   }
-
   public String getNotes() {
     return notes;
+  }
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstName(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withMidName(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+  public ContactData withLastName(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withNickName(String nickname) {
+    this.nickname = nickname;
+    return this;
+  }
+
+  public ContactData withCompany(String company) {
+    this.company = company;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withMobPhone(String mobilephone) {
+    this.mobilephone = mobilephone;
+    return this;
+  }
+
+  public ContactData withHomeNum(String homenumber) {
+    this.homenumber = homenumber;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withHomepage(String homepage) {
+    this.homepage = homepage;
+    return this;
+  }
+
+  public ContactData withDayOfBirth(String day_of_birth) {
+    this.day_of_birth = day_of_birth;
+    return this;
+  }
+
+  public ContactData withMonthOfBirth(String month_of_birth) {
+    this.month_of_birth = month_of_birth;
+    return this;
+  }
+
+  public ContactData withYearOfBirth(String year_of_birth) {
+    this.year_of_birth = year_of_birth;
+    return this;
+  }
+
+  public ContactData withNotes(String notes) {
+    this.notes = notes;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
   }
 
   @Override
