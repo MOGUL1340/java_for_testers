@@ -19,6 +19,7 @@ public class ContactData {
   private String group;
   private String address;
   private String homenumber;
+  private String worknumber;
   private String notes;
 
   public int getId() {
@@ -66,6 +67,9 @@ public class ContactData {
   public String getHomeNumber() {
     return homenumber;
   }
+  public String getWorkNumber() {
+    return worknumber;
+  }
   public String getNotes() {
     return notes;
   }
@@ -112,6 +116,11 @@ public class ContactData {
 
   public ContactData withHomeNum(String homenumber) {
     this.homenumber = homenumber;
+    return this;
+  }
+
+  public ContactData withWorkNum(String worknumber) {
+    this.worknumber = worknumber;
     return this;
   }
 
