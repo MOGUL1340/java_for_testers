@@ -40,6 +40,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("mobile"), contactData.getMobilephone());
     type(By.name("email"), contactData.getEmail());
     type(By.name("homepage"), contactData.getHomepage());
+    attach(By.name("photo"), contactData.getPhoto());
 
 //    click(By.name("bday"));
 //    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getDay_of_birth());
